@@ -54,7 +54,7 @@ app.queue(api_open=api).launch(
 ### 方案 A：手动更新（推荐）
 
 ```bash
-cd /Users/mond/Desktop/tts/F5-TTS
+cd <PROJECT_ROOT>/F5-TTS
 
 # 1. 查看当前修改
 git status
@@ -82,7 +82,7 @@ cd ..
 
 ```bash
 # 1. 创建补丁文件（首次）
-cd /Users/mond/Desktop/tts/F5-TTS
+cd <PROJECT_ROOT>/F5-TTS
 git diff > ../f5tts.patch
 
 # 2. 重置代码
@@ -104,7 +104,7 @@ cd ..
 1. 在 GitHub 上 Fork `SWivid/F5-TTS`
 2. 克隆你的 Fork:
    ```bash
-   cd /Users/mond/Desktop/tts
+   cd <PROJECT_ROOT>
    rm -rf F5-TTS
    git clone https://github.com/YOUR_USERNAME/F5-TTS.git
    ```
@@ -128,7 +128,7 @@ cd ..
 ## 📦 导出当前补丁
 
 ```bash
-cd /Users/mond/Desktop/tts/F5-TTS
+cd <PROJECT_ROOT>/F5-TTS
 git diff > ../patches/f5tts-macos-compat.patch
 ```
 
@@ -153,12 +153,12 @@ grep -n "max_file_size" src/f5_tts/infer/infer_gradio.py
 
 ```bash
 # 回退到上一个工作版本
-cd /Users/mond/Desktop/tts/F5-TTS
+cd <PROJECT_ROOT>/F5-TTS
 git log --oneline -10  # 找到之前的 commit
 git reset --hard <commit-hash>
 
 # 重新安装
-cd /Users/mond/Desktop/tts
+cd <PROJECT_ROOT>
 ./stop_services.sh
 cd F5-TTS
 source .venv/bin/activate
@@ -172,7 +172,7 @@ cd ..
 
 1. **定期备份当前工作版本**
    ```bash
-   cd /Users/mond/Desktop/tts
+   cd <PROJECT_ROOT>
    tar -czf backups/f5tts-$(date +%Y%m%d).tar.gz F5-TTS/
    ```
 

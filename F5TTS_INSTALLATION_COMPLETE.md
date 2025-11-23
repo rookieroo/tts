@@ -6,7 +6,7 @@ Successfully reinstalled F5-TTS using the official pip/venv installation method 
 ## Environment Details
 - **Python Version**: 3.11.14_1 (via Homebrew)
 - **Python Path**: `/opt/homebrew/bin/python3.11`
-- **Virtual Environment**: `/Users/mond/Desktop/tts/F5-TTS/.venv`
+- **Virtual Environment**: `<PROJECT_ROOT>/F5-TTS/.venv`
 - **PyTorch Version**: 2.9.1 for Apple Silicon
 - **Gradio Version**: 5.50.0
 
@@ -22,8 +22,8 @@ Successfully reinstalled F5-TTS using the official pip/venv installation method 
 - **Cloudflare Tunnel**: Active ✅
 
 ## Access URLs
-- F5-TTS: https://f5tts.propsdin.com
-- IndexTTS: https://indextts.propsdin.com
+- F5-TTS: https://f5tts.example.com
+- IndexTTS: https://indextts.example.com
 - Local F5-TTS: http://localhost:7860
 - Local IndexTTS: http://localhost:7861
 
@@ -31,9 +31,9 @@ Successfully reinstalled F5-TTS using the official pip/venv installation method 
 
 ### 1. Cloudflare Workers Authentication
 **Status**: Documented, not yet fixed
-**Description**: Cloudflare Workers at `propsdin.com/tts-auth` intercepts all requests to F5-TTS and IndexTTS, including Gradio API calls.
+**Description**: Cloudflare Workers authentication may intercept requests to F5-TTS and IndexTTS, including Gradio API calls.
 
-**Solution**: Modify the Workers script at `/Users/mond/Desktop/web/propsdin-theme/worker.ts` to bypass authentication for the following paths:
+**Solution**: Modify your Cloudflare Workers script to bypass authentication for the following paths:
 - `/gradio_api/*`
 - `/queue/*`
 - `/file/*`
@@ -54,12 +54,12 @@ Successfully reinstalled F5-TTS using the official pip/venv installation method 
   - `src/f5_tts/infer/utils_infer.py`
 
 ## Log Files
-- F5-TTS: `/Users/mond/Desktop/tts/F5-TTS/f5tts.log`
-- IndexTTS: `/Users/mond/Desktop/tts/index-tts/indextts.log`
-- Cloudflare Tunnel: `/Users/mond/Desktop/tts/tunnel.log`
+- F5-TTS: `<PROJECT_ROOT>/F5-TTS/f5tts.log`
+- IndexTTS: `<PROJECT_ROOT>/index-tts/indextts.log`
+- Cloudflare Tunnel: `<PROJECT_ROOT>/tunnel.log`
 
 ## Management Scripts
-All scripts are located in `/Users/mond/Desktop/tts/`:
+All scripts are located in `<PROJECT_ROOT>/`:
 
 - `start_f5tts.sh` - Start F5-TTS service
 - `start_indextts.sh` - Start IndexTTS service
@@ -84,7 +84,7 @@ curl -I http://localhost:7861/
 
 ### Remote Testing (requires authentication bypass)
 Once Cloudflare Workers authentication is configured:
-1. Access https://f5tts.propsdin.com
+1. Access https://f5tts.example.com (replace with your domain)
 2. Upload a reference audio file
 3. Enter text to generate
 4. Verify file upload doesn't show `upload_id=undefined`
@@ -92,7 +92,7 @@ Once Cloudflare Workers authentication is configured:
 
 ## Next Steps
 1. **Fix Cloudflare Workers Authentication** (priority)
-   - Edit `/Users/mond/Desktop/web/propsdin-theme/worker.ts`
+   - Edit your Cloudflare Workers script
    - Add API path bypasses as documented in `WORKERS_AUTH_FIX.md`
    - Deploy updated Workers script
 

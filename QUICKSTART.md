@@ -20,8 +20,8 @@
 - **IndexTTS**: http://localhost:7861
 
 ### 远程访问
-- **F5-TTS**: https://f5tts.propsdin.com
-- **IndexTTS**: https://indextts.propsdin.com
+- **F5-TTS**: https://f5tts.example.com
+- **IndexTTS**: https://indextts.example.com
 
 ## 查看日志
 

@@ -24,24 +24,24 @@
 ### F5-TTS
 - **端口**: 7860
 - **主机**: 0.0.0.0
-- **虚拟环境**: `/Users/mond/Desktop/tts/F5-TTS/.venv`
+- **虚拟环境**: `<PROJECT_ROOT>/F5-TTS/.venv`
 - **日志文件**: `F5-TTS/f5tts.log`
 
 ### IndexTTS
 - **端口**: 7861
 - **主机**: 0.0.0.0
-- **虚拟环境**: `/Users/mond/Desktop/tts/index-tts/.venv`
+- **虚拟环境**: `<PROJECT_ROOT>/index-tts/.venv`
 - **日志文件**: `index-tts/indextts.log`
 
 ### Cloudflare Tunnel
-- **Tunnel ID**: 71aebf4a-5e2e-4754-9d0a-d2832f85f0c8
+- **Tunnel ID**: <YOUR_TUNNEL_ID>
 - **配置文件**: `~/.cloudflared/config.yml`
 - **日志文件**: `tunnel.log`
 
 ## 域名配置
 
-- `f5tts.propsdin.com` → localhost:7860
-- `indextts.propsdin.com` → localhost:7861
+- `f5tts.example.com` → localhost:7860
+- `indextts.example.com` → localhost:7861
 
 ## 环境变量
 

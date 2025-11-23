@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "🚀 启动 F5-TTS..."
 export PATH="/opt/homebrew/bin:$PATH"
-cd /Users/mond/Desktop/tts/F5-TTS
+cd "$(dirname "$0")/F5-TTS"
 source .venv/bin/activate
 
 # 设置环境变量（必须在检查之前）
@@ -18,5 +18,5 @@ else
     env HF_ENDPOINT=https://hf-mirror.com TORCHAUDIO_USE_BACKEND_DISPATCHER=1 TORCHAUDIO_BACKEND=soundfile \
         f5-tts_infer-gradio --port 7860 --host 0.0.0.0 2>&1 | tee f5tts.log &
     echo "✅ F5-TTS 已后台启动 (PID: $!)"
-    echo "📄 日志文件: /Users/mond/Desktop/tts/F5-TTS/f5tts.log"
+    echo "📄 日志文件: $(pwd)/f5tts.log"
 fi

@@ -31,7 +31,7 @@
 **实施方案**:
 ```bash
 # 1. 保留 F5-TTS，移除 IndexTTS
-cd /Users/mond/Desktop/tts
+cd <PROJECT_ROOT>
 rm -rf index-tts
 rm -f start_indextts.sh watch_indextts_log.sh
 
@@ -141,7 +141,7 @@ rm -f start_indextts.sh watch_indextts_log.sh
 ### 1. 清理 IndexTTS
 
 ```bash
-cd /Users/mond/Desktop/tts
+cd <PROJECT_ROOT>
 
 # 备份 IndexTTS（以防需要恢复）
 tar -czf backups/index-tts-backup-$(date +%Y%m%d).tar.gz index-tts/
@@ -161,7 +161,7 @@ credentials-file: /Users/<USER>/.cloudflared/<TUNNEL_ID>.json
 
 ingress:
   # 只保留 F5-TTS
-  - hostname: f5tts.propsdin.com
+  - hostname: f5tts.example.com
     service: http://localhost:7860
     originRequest:
       connectTimeout: 300s

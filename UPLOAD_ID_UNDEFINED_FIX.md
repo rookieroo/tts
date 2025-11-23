@@ -18,7 +18,7 @@ Status Code: 404 Not Found
 
 ### 1. 停止 F5-TTS 服务
 ```bash
-cd /Users/mond/Desktop/tts
+cd <PROJECT_ROOT>
 ./stop_services.sh
 # 或者
 pkill -9 -f "f5-tts_infer-gradio"
@@ -26,14 +26,14 @@ pkill -9 -f "f5-tts_infer-gradio"
 
 ### 2. 降级 Gradio
 ```bash
-cd /Users/mond/Desktop/tts/F5-TTS
+cd <PROJECT_ROOT>/F5-TTS
 source .venv/bin/activate
 pip install "gradio==5.44.0"
 ```
 
 ### 3. 重启 F5-TTS
 ```bash
-cd /Users/mond/Desktop/tts
+cd <PROJECT_ROOT>
 ./start_f5tts.sh
 ```
 
@@ -76,7 +76,7 @@ Gradio 5.44.0 版本中的文件上传流程：
 
 ### 检查 Gradio 版本
 ```bash
-cd /Users/mond/Desktop/tts/F5-TTS
+cd <PROJECT_ROOT>/F5-TTS
 .venv/bin/pip show gradio | grep Version
 ```
 

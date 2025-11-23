@@ -31,7 +31,7 @@
 ┌─────────────────────────────────────────────────────────────┐
 │              Cloudflare Network (CDN + Security)             │
 │  ┌─────────────────────┐  ┌─────────────────────────────┐  │
-│  │ f5tts.propsdin.com  │  │ indextts.propsdin.com       │  │
+│  │ f5tts.example.com   │  │ indextts.example.com        │  │
 │  └──────────┬──────────┘  └──────────┬──────────────────┘  │
 └─────────────┼──────────────────────────┼─────────────────────┘
               │ Encrypted Tunnel         │
@@ -144,7 +144,7 @@ cloudflared tunnel login
 # 创建 Tunnel
 cloudflared tunnel create tts-tunnel
 
-# 记录 Tunnel ID（类似：71aebf4a-5e2e-4754-9d0a-d2832f85f0c8）
+# 记录 Tunnel ID（会自动生成，类似：xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx）
 ```
 
 创建配置文件 `~/.cloudflared/config.yml`：
@@ -155,7 +155,7 @@ credentials-file: /Users/<YOUR_USERNAME>/.cloudflared/<YOUR_TUNNEL_ID>.json
 
 ingress:
   # F5-TTS 服务
-  - hostname: f5tts.propsdin.com
+  - hostname: f5tts.example.com
     service: http://localhost:7860
     originRequest:
       connectTimeout: 300s
@@ -165,7 +165,7 @@ ingress:
       disableChunkedEncoding: true
   
   # IndexTTS 服务
-  - hostname: indextts.propsdin.com
+  - hostname: indextts.example.com
     service: http://localhost:7861
     originRequest:
       connectTimeout: 300s
@@ -181,9 +181,9 @@ ingress:
 配置 DNS（在 Cloudflare Dashboard）：
 
 ```bash
-# 添加 CNAME 记录
-f5tts.propsdin.com    CNAME   <YOUR_TUNNEL_ID>.cfargotunnel.com
-indextts.propsdin.com CNAME   <YOUR_TUNNEL_ID>.cfargotunnel.com
+# 添加 CNAME 记录（将 example.com 替换为你的域名）
+f5tts.example.com    CNAME   <YOUR_TUNNEL_ID>.cfargotunnel.com
+indextts.example.com CNAME   <YOUR_TUNNEL_ID>.cfargotunnel.com
 ```
 
 ### 步骤 6：创建管理脚本
@@ -342,9 +342,13 @@ chmod +x *.sh
   - F5-TTS: http://localhost:7860
   - IndexTTS: http://localhost:7861
 
-- **远程访问**：
-  - F5-TTS: https://f5tts.propsdin.com
-  - IndexTTS: https://indextts.propsdin.com
+- **远程访问**（替换为你的域名）：
+  - F5-TTS: https://f5tts.example.com
+  - IndexTTS: https://indextts.example.com
+
+- **官方在线体验**（无需部署）：
+  - F5-TTS: https://huggingface.co/spaces/mrfakename/E2-F5-TTS
+  - IndexTTS: https://www.modelscope.cn/studios/IndexTeam/Index-1.9B-Character
 
 ## 📚 已知问题与解决方案
 
