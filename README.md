@@ -472,12 +472,38 @@ originRequest:
 - 限制参考音频长度（<12 秒效果最佳）
 - 预先转换音频为 WAV 格式
 
+## 🆚 为什么选择 F5-TTS？
+
+本项目选择 F5-TTS 作为核心引擎，原因如下：
+
+| 特性 | F5-TTS | Bark | CosyVoice | IndexTTS |
+|------|--------|------|-----------|----------|
+| **许可证** | ✅ MIT | ✅ MIT | ✅ Apache 2.0 | ⚠️ 限制 |
+| **商用** | ✅ 无限制 | ✅ 无限制 | ✅ 无限制 | ⚠️ 有限制 |
+| **中文** | ✅ 良好 | ⚠️ 一般 | ✅✅ 优秀 | ✅✅ 优秀 |
+| **英文** | ✅✅ 优秀 | ✅✅ 优秀 | ✅ 良好 | ⚠️ 一般 |
+| **速度** | ✅✅ 快 | ❌ 慢 | ⚠️ 中等 | ✅ 较快 |
+| **零样本** | ✅ 支持 | ✅ 支持 | ✅ 支持 | ✅ 支持 |
+| **模型大小** | ~2GB | ~5-8GB | ~10-15GB | ~2GB |
+| **维护** | ✅ 活跃 | ⚠️ 较少 | ✅ 活跃 | ✅ 活跃 |
+
+**选择理由**:
+1. ✅ **MIT 许可证** - 商用完全无限制，法律风险最低
+2. ✅ **性能优秀** - 生成速度快，适合生产环境
+3. ✅ **中英文均衡** - 两种语言效果都不错
+4. ✅ **资源占用小** - 适合本地部署
+5. ✅ **社区活跃** - 持续更新和维护
+
+**其他模型评估**: 详见 `BARK_COSYVOICE_EVALUATION.md`
+
 ## 🎓 学习资源
 
 - [F5-TTS 官方文档](https://github.com/SWivid/F5-TTS)
 - [IndexTTS 官方文档](https://github.com/indexxlabs/index-tts)
 - [Cloudflare Tunnel 文档](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/)
 - [Gradio 文档](https://www.gradio.app/docs)
+- [Bark GitHub](https://github.com/suno-ai/bark)
+- [CosyVoice GitHub](https://github.com/FunAudioLLM/CosyVoice)
 
 ## 🐛 故障排查
 
